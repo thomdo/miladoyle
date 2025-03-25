@@ -23,9 +23,9 @@ main {
 main img {
     width: 90vw;
     max-width: 960px;
-    filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.2))
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.2));
 }
 
 h1 {
-    font-size: 36px;
+    font-size: 6vw;
 }
