@@ -1,7 +1,12 @@
+@font-face {
+    font-family: Meow Script;
+    src: url('/fonts/MeowScript-Regular.ttf');
+}
+
 body {
-    background-color: #FFE0E0;
+    background-color: lch(95% 40 0);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: #40264D;
+    color: lch(40% 132 0);
 }
 
 header, footer {
@@ -27,5 +32,8 @@ main img {
 }
 
 h1 {
-    font-size: 6vw;
+    font-size: clamp(48px, 8vw, 128px);
+    line-height: 0.9em;
+    font-family: Meow Script;
+    text-align: center;
 }
