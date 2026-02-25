@@ -12,6 +12,6 @@
     // Create a KV namespace and replace with your actual ID:
     //   wrangler kv namespace create ARTWORK_KV
     "kv_namespaces": [
-      { "binding": "ARTWORK_KV", "id": "REPLACE_WITH_YOUR_KV_NAMESPACE_ID" }
+      { "binding": "ARTWORK_KV", "id": "1ebfdaf753704940b1e038644efe2d08" }
     ]
   }
