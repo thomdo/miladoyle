@@ -1,5 +1,9 @@
 import { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
+import Button from '../components/ui/Button';
+import Input from '../components/ui/Input';
+import FileInput from '../components/ui/FileInput';
+import GoogleG from '../components/icons/GoogleG';
 
 export default function Upload() {
   const { user, loading } = useAuth();
@@ -16,9 +20,7 @@ export default function Upload() {
     return (
       <div className="login-page">
         <p>Sign in to upload artwork.</p>
-        <a href="/api/auth/login" className="google-login-button">
-          Sign in with Google
-        </a>
+        <Button href="/api/auth/login" icon={<GoogleG />}>Sign in with Google</Button>
       </div>
     );
   }
@@ -73,41 +75,32 @@ export default function Upload() {
     <div className="upload-page">
       <h2>Upload Artwork</h2>
       <form className="upload-form" onSubmit={handleSubmit}>
-        <label>
-          Image
-          <input
-            type="file"
-            accept="image/png,image/jpeg,image/gif,image/webp"
-            onChange={handleFileChange}
-            required
-          />
-        </label>
+        <FileInput
+          label="Image"
+          accept="image/png,image/jpeg,image/gif,image/webp"
+          onChange={handleFileChange}
+          required
+        />
         {preview && <img className="upload-preview" src={preview} alt="Preview" />}
-        <label>
-          Title
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            placeholder="e.g. A silly robot"
-            maxLength={200}
-            required
-          />
-        </label>
-        <label>
-          Year
-          <input
-            type="text"
-            value={year}
-            onChange={(e) => setYear(e.target.value)}
-            placeholder="e.g. 2024"
-            maxLength={4}
-            required
-          />
-        </label>
-        <button type="submit" disabled={uploading}>
+        <Input
+          label="Title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          placeholder="e.g. A silly robot"
+          maxLength={200}
+          required
+        />
+        <Input
+          label="Year"
+          value={year}
+          onChange={(e) => setYear(e.target.value)}
+          placeholder="e.g. 2024"
+          maxLength={4}
+          required
+        />
+        <Button type="submit" disabled={uploading}>
           {uploading ? 'Uploading...' : 'Upload'}
-        </button>
+        </Button>
       </form>
       {status && (
         <p className={`upload-status ${status.type}`}>{status.message}</p>
