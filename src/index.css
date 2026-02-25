@@ -1,0 +1,113 @@
+@font-face {
+    font-family: Meow Script;
+    src: url('/fonts/MeowScript-Regular.ttf');
+}
+
+body {
+    background-color: lch(95% 40 0);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: lch(40% 132 0);
+    margin: 0;
+}
+
+header, footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+header {
+    cursor: pointer;
+}
+
+h1 {
+    font-size: clamp(48px, 8vw, 128px);
+    line-height: 0.9em;
+    font-family: Meow Script;
+    text-align: center;
+    margin: 16px 0 0;
+}
+
+/* Gallery */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 32px;
+    padding: 0 5vw 64px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.artwork-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.artwork-card img {
+    width: 100%;
+    max-width: 480px;
+    display: block;
+    transition: opacity 0.15s ease;
+}
+
+.artwork-card:hover img {
+    opacity: 0.85;
+}
+
+.artwork-card p {
+    margin: 12px 0 0;
+    font-size: 1rem;
+}
+
+/* Detail view */
+
+.artwork-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 5vw 64px;
+}
+
+.artwork-detail img {
+    width: 90vw;
+    max-width: 960px;
+    display: block;
+}
+
+.artwork-detail p {
+    margin: 16px 0 0;
+    font-size: 1.1rem;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 0;
+    margin-bottom: 24px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    align-self: flex-start;
+    margin-left: max(5vw, calc(50% - 480px));
+}
+
+.back-button:hover {
+    opacity: 0.7;
+}
