@@ -315,6 +315,12 @@ export default {
     }
 
     // Serve static assets (React SPA)
-    return env.ASSETS.fetch(request);
+    // Try the requested path first; if not found, fall back to index.html
+    // so React Router can handle client-side routes like /upload
+    const response = await env.ASSETS.fetch(request);
+    if (response.status === 404 && !path.includes('.')) {
+      return env.ASSETS.fetch(new Request(new URL('/', request.url), request));
+    }
+    return response;
   },
 };
