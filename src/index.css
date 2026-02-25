@@ -19,8 +19,33 @@ header, footer {
     margin-bottom: 32px;
 }
 
-header {
+.header-main {
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-nav {
+    display: flex;
+    gap: 16px;
+    margin-top: 12px;
+}
+
+.header-nav button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+    font-family: inherit;
+    font-size: 0.9rem;
+    padding: 0;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.header-nav button:hover {
+    opacity: 0.7;
 }
 
 h1 {
@@ -110,4 +135,120 @@ h1 {
 
 .back-button:hover {
     opacity: 0.7;
+}
+
+/* Login page */
+
+.login-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 5vw 64px;
+    gap: 24px;
+}
+
+.google-login-button {
+    display: inline-block;
+    padding: 12px 32px;
+    background: lch(40% 132 0);
+    color: lch(95% 40 0);
+    text-decoration: none;
+    font-family: inherit;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.15s ease;
+}
+
+.google-login-button:hover {
+    opacity: 0.85;
+}
+
+/* Upload page */
+
+.upload-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 5vw 64px;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.upload-page h2 {
+    font-family: Meow Script;
+    font-size: clamp(32px, 5vw, 48px);
+    margin: 0 0 24px;
+}
+
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.upload-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.9rem;
+}
+
+.upload-form input[type="text"] {
+    padding: 10px 12px;
+    border: 2px solid lch(40% 132 0 / 0.3);
+    background: lch(95% 40 0);
+    color: inherit;
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+}
+
+.upload-form input[type="text"]:focus {
+    border-color: lch(40% 132 0);
+}
+
+.upload-form input[type="file"] {
+    font-family: inherit;
+    font-size: 0.9rem;
+}
+
+.upload-preview {
+    width: 100%;
+    max-width: 320px;
+    align-self: center;
+}
+
+.upload-form button[type="submit"] {
+    padding: 12px 32px;
+    background: lch(40% 132 0);
+    color: lch(95% 40 0);
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: opacity 0.15s ease;
+}
+
+.upload-form button[type="submit"]:hover {
+    opacity: 0.85;
+}
+
+.upload-form button[type="submit"]:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.upload-status {
+    margin-top: 16px;
+    font-size: 1rem;
+}
+
+.upload-status.success {
+    color: lch(40% 80 145);
+}
+
+.upload-status.error {
+    color: lch(40% 80 25);
 }
