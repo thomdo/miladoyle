@@ -3,8 +3,11 @@
   "private": true,
   "scripts": {
     "dev": "vite",
+    "dev:worker": "wrangler dev",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "npm run build && wrangler deploy",
+    "seed": "node scripts/seed.js"
   },
   "dependencies": {
     "react": "^18.3.1",
