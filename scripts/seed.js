@@ -30,7 +30,7 @@ const artworks = [
 console.log('Uploading robot.png to R2...');
 try {
   execSync(
-    `npx wrangler r2 object put miladoyle-artwork/robot.png --file=${resolve(projectRoot, 'assets/images/robot.png')} --content-type=image/png`,
+    `npx wrangler r2 object put miladoyle-artwork/robot.png --file=${resolve(projectRoot, 'assets/images/robot.png')} --content-type=image/png --remote`,
     { cwd: projectRoot, stdio: 'inherit' }
   );
   console.log('Done.');
@@ -43,7 +43,7 @@ console.log('Writing artworks data to KV...');
 try {
   const json = JSON.stringify(artworks);
   execSync(
-    `npx wrangler kv key put --binding=ARTWORK_KV artworks '${json}'`,
+    `npx wrangler kv key put --namespace-id=1ebfdaf753704940b1e038644efe2d08 artworks '${json}' --remote`,
     { cwd: projectRoot, stdio: 'inherit' }
   );
   console.log('Done.');
