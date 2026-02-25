@@ -12,12 +12,9 @@
  * artworks array to KV. Only needs to be run once.
  */
 
-import { execSync } from 'child_process';
-import { readFileSync } from 'fs';
-import { resolve, dirname } from 'path';
-import { fileURLToPath } from 'url';
+const { execSync } = require('child_process');
+const { resolve } = require('path');
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
 const projectRoot = resolve(__dirname, '..');
 
 const artworks = [
@@ -33,7 +30,7 @@ const artworks = [
 console.log('Uploading robot.png to R2...');
 try {
   execSync(
-    `wrangler r2 object put miladoyle-artwork/robot.png --file=${resolve(projectRoot, 'assets/images/robot.png')} --content-type=image/png`,
+    `npx wrangler r2 object put miladoyle-artwork/robot.png --file=${resolve(projectRoot, 'assets/images/robot.png')} --content-type=image/png`,
     { cwd: projectRoot, stdio: 'inherit' }
   );
   console.log('Done.');
@@ -46,7 +43,7 @@ console.log('Writing artworks data to KV...');
 try {
   const json = JSON.stringify(artworks);
   execSync(
-    `wrangler kv key put --binding=ARTWORK_KV artworks '${json}'`,
+    `npx wrangler kv key put --binding=ARTWORK_KV artworks '${json}'`,
     { cwd: projectRoot, stdio: 'inherit' }
   );
   console.log('Done.');
